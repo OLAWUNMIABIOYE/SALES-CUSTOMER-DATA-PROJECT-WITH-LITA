@@ -76,6 +76,35 @@ select * from [dbo].[Sales Data For Sql Ikeja]
 		Group By MONTH(OrderDate)
 		Order By Month;
 
+
+		----6. FIND TOP FIVE CUSTOMERS BY TOTALPURCHASE AMOUNT---
+
+		select Top 5 Customer_id, SUM(Quantity*UnitPrice) as TotalPurchaseAmount
+		From [dbo].[Sales Data For Sql Ikeja]
+		Group By Customer_id
+		Order By TotalPurchaseAmount Desc;
+					   
+
+		---7. CALCULATE THE PERCENTAGE OF TOTALSALES PER REGION----
+
+		calculate the PercentageOfTotalSales contributed by each region,-
+		select Region. SUM(Sales) As RegionTotalSales,-
+		FORMAT(ROUND((SUM(Sales)/CAST((SELECT SUM(Sales)
+		FROM [dbo].[Sales Data For Sql Ikeja] AS DECIMAL (10,2)) * 100),1),'0.#')
+		AS PercentageOfTotalSales
+		FROM[dbo].[Sales Data For Sql Ikeja]
+		GROUP BY Region
+		ORDER BY PercentageOfTotalSales
+		DESC
+
+		8--- IDENTIFY PRODUCTS WITH NO SALES IN THE LAST QUATER---
+
+		SELECT PRODUCT
+		FROM [dbo].[Sales Data For Sql Ikeja]
+		GROUP BY Product
+		HAVING SUM(CASE
+		WHEN OrderDate BETWEEN '2024-06-01' AND '2024-08-31'
+		THEN 1 ELSE 0 END) =0
 ```SQL
 
  
