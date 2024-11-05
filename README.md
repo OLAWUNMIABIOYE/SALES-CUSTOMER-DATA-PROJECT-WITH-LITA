@@ -32,11 +32,49 @@ _ MICROSOFT EXCEL- [Download Here][https://www.microsoft.com]
  Data are summarized, facts such as best and worst performing products , customers and regions are presentated.
 
  ```SQL
-SELECT * from table1
+
+	create database PROJECT_DB
+
+select * from [dbo].[Sales Data For Sql Ikeja]
+	
+----1. RETRIEVE TOTALSALES FOR EACH PRODUCT CATEGORY----
+
+	select Product,Sum(Quantity*UnitPrice) as totalsale
+	from [dbo].[Sales Data For Sql Ikeja]
+	Group By Product
+
+	RENAME SALES COLUMN AS TOTALSALES
 
 
+	----2, FIND NUMBERS OF SALES TRANSACTIONS IN EACH REGION---
+
+	select Region, COUNT(OrderID) as NumberOfSalesTransactions
+	from [dbo].[Sales Data For Sql Ikeja]
+	Group By Region;
 
 
+	----3. FIND THE HIGHEST SELLING PRODUCT BY TOTALSALES VALUE---
+
+	select Top 1 PRODUCT, SUM(Quantity*UnitPrice) as TotalSales
+	from [dbo].[Sales Data For Sql Ikeja]
+	Group By Product
+	Order By TotalSales Desc;
+
+
+	---4. CALCULATE TOTAL REVENUE PER PRODUCT---
+
+	select PRODUCT, SUM(Quantity*UnitPrice) as TotalRevenue
+	from[dbo].[Sales Data For Sql Ikeja]
+	Group By Product;
+
+
+	---5. CALCULATE MONTHLY SALES TOTALS FOR CURRENT YEAR---
+		
+		select Month(OrderDate) as Month, SUM(Quantity*UnitPrice) as MonthlySalesTotals
+		from [dbo].[Sales Data For Sql Ikeja] 
+		Where Year(OrderDate) = 2024
+		Group By MONTH(OrderDate)
+		Order By Month;
 
 ```SQL
 
