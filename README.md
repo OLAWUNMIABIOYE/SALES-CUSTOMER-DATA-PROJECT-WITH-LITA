@@ -48,11 +48,13 @@ _ MICROSOFT EXCEL- [Download Here][https://www.microsoft.com]
 ### DATA ANALYSIS AND PRESENTATIONS.
  Data are summarized, facts such as best and worst performing products , customers and regions are presentated.
 
- ```SQL
+```SQL
 
-	create database PROJECT_DB
+create database PROJECT_DB
+	
+	select * from [dbo].[Sales Data For Sql Ikeja]
 
-select * from [dbo].[Sales Data For Sql Ikeja]
+	----SALES DATA EXPLORATION----
 	
 ----1. RETRIEVE TOTALSALES FOR EACH PRODUCT CATEGORY----
 
@@ -60,10 +62,10 @@ select * from [dbo].[Sales Data For Sql Ikeja]
 	from [dbo].[Sales Data For Sql Ikeja]
 	Group By Product
 
-	RENAME SALES COLUMN AS TOTALSALES
+		RENAME SALES COLUMN AS TOTALSALES
 
 
-	----2, FIND NUMBERS OF SALES TRANSACTIONS IN EACH REGION---
+	----2. FIND NUMBERS OF SALES TRANSACTIONS IN EACH REGION---
 
 	select Region, COUNT(OrderID) as NumberOfSalesTransactions
 	from [dbo].[Sales Data For Sql Ikeja]
@@ -80,14 +82,15 @@ select * from [dbo].[Sales Data For Sql Ikeja]
 
 	---4. CALCULATE TOTAL REVENUE PER PRODUCT---
 
-	select PRODUCT, SUM(Quantity*UnitPrice) as TotalRevenue
+	select PRODUCT, SUM(Quantity*UnitPrice) as TotalSales
 	from[dbo].[Sales Data For Sql Ikeja]
 	Group By Product;
 
 
 	---5. CALCULATE MONTHLY SALES TOTALS FOR CURRENT YEAR---
 		
-		select Month(OrderDate) as Month, SUM(Quantity*UnitPrice) as MonthlySalesTotals
+		select Month(OrderDate) as Month, 
+		SUM(Quantity*UnitPrice) as MonthlySalesTotals
 		from [dbo].[Sales Data For Sql Ikeja] 
 		Where Year(OrderDate) = 2024
 		Group By MONTH(OrderDate)
@@ -104,17 +107,14 @@ select * from [dbo].[Sales Data For Sql Ikeja]
 
 		---7. CALCULATE THE PERCENTAGE OF TOTALSALES PER REGION----
 
-		calculate the PercentageOfTotalSales contributed by each region,-
-		select Region. SUM(Sales) As RegionTotalSales,-
-		FORMAT(ROUND((SUM(Sales)/CAST((SELECT SUM(Sales)
-		FROM [dbo].[Sales Data For Sql Ikeja] AS DECIMAL (10,2)) * 100),1),'0.#')
-		AS PercentageOfTotalSales
-		FROM[dbo].[Sales Data For Sql Ikeja]
+	SELECT Region, 
+		SUM(Quantity*UnitPrice) 
+		*00.1 AS Percebtage_of_Total_Sales
+		FROM [dbo].[Sales Data For Sql Ikeja]
 		GROUP BY Region
-		ORDER BY PercentageOfTotalSales
-		DESC
+		ORDER BY Percebtage_of_Total_Sales
 
-		8--- IDENTIFY PRODUCTS WITH NO SALES IN THE LAST QUATER---
+	8--- IDENTIFY PRODUCTS WITH NO SALES IN THE LAST QUATER---
 
 		SELECT PRODUCT
 		FROM [dbo].[Sales Data For Sql Ikeja]
@@ -122,8 +122,76 @@ select * from [dbo].[Sales Data For Sql Ikeja]
 		HAVING SUM(CASE
 		WHEN OrderDate BETWEEN '2024-06-01' AND '2024-08-31'
 		THEN 1 ELSE 0 END) =0
-```SQL
+		
+		----CUSTOMER DATA EXPLORATION----
 
+		SELECT * FROM[dbo].[CSV CUSTOMER DATA now]
+
+			1. --RETRIVE THE TOTAL REVENUE FOR EACH SUBSCRIPTION TYPE---
+
+		SELECT SubscriptionType ,
+			SUM (REVENUE) AS TOTALREVENUE
+			FROM [dbo].[CSV CUSTOMER DATA now]
+			GROUP BY SubscriptionType  
+
+	2.---NUMBER OF SALES TRANSACTIONS IN EACH REGION---
+
+	select Region,
+	COUNT(CustomerID) as NumberOfSalesTransactions
+	from [dbo].[CSV CUSTOMER DATA now]
+	Group By Region;
+
+	3. ---HIGHEST SELLING SUBSCRIPTION TYPE BY TOTAL REVENUE----
+
+	select Top 1 SubscriptionType, 
+	SUM (REVENUE) AS TOTALREVENUE
+	from [dbo].[CSV CUSTOMER DATA now]
+	Group By SubscriptionType
+	Order By TOTALREVENUE Desc;
+	
+	  4.---CALCULATE TOTAL REVENUE BY SUBCRIPTION TYPE----
+
+	Select SubscriptionType, 
+		SUM (REVENUE) AS TOTALREVENUE
+		from [dbo].[CSV CUSTOMER DATA now]
+		Group By SubscriptionType
+
+	5. ----MONTHLY TOTAL REVENUE FOR THE CURRENT YEAR---
+
+	select Month(2024-01-01) as Month, 
+		SUM(Revenue) as MonthlySalesTotals
+		from [dbo].[CSV CUSTOMER DATA now]
+		Group By Revenue
+
+		6. ----FIND THE TOP FIVE CUSTOMERS BY TOTAL PURCHASE AMOUNT---
+
+	Select Top 5 CustomerID, 
+		SUM(Revenue) as TotalPurchaseAmount
+		FROM [dbo].[CSV CUSTOMER DATA now]
+		Group By CustomerID
+		Order By TotalPurchaseAmount Desc;
+
+	7. ---THE PERCENTAGE OF TOTAL REVENUE CONTRIBUTED  BY EACH REGION---
+
+	SELECT Region, 
+		SUM(Revenue) 
+		*00.1 AS Percebtage_of_Total_Revenue
+		FROM [dbo].[CSV CUSTOMER DATA now]
+		GROUP BY Region
+		ORDER BY Percebtage_of_Total_Revenue
+
+
+	8--- IDENTIFY PRODUCTS WITH NO SALES IN THE LAST QUATER---
+
+		SELECT SubscriptionType
+		FROM [dbo].[CSV CUSTOMER DATA now]
+		GROUP BY SubscriptionType
+		HAVING SUM(CASE
+		WHEN SubscriptionStart BETWEEN '2024-06-01' AND '2024-08-31'
+		THEN 1 ELSE 0 END) =0	
+
+	SELECT * FROM[dbo].[CSV CUSTOMER DATA now]
+```SQL
  👍✔👍HEADING 1HEADING
 -----1---------2-------
 :
