@@ -4,11 +4,15 @@
 ---
 [PROJECT OVERVIEW](#project-overview)
 
-[DATA SOURCES]{#data-source}
+[DATA SOURCES](#data-sources)
 
-[DATA CLEANING AND PREPARATIONS](#data cleaninig-and-preparations)
+[DATA CLEANING AND PREPARATIONS](#data-cleaning-and-preparations)
 
 [EXPLORATORY DATA ANALYSIS](#exploratory-data-Analysis)
+
+[DATA ANALYSES](#data-analyses)
+
+[DATA SUMMARIZATION PRESENTATION AND VISUALIZATION](#data-summarization-presentation-and-visualization)
 
 
 
