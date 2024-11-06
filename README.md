@@ -17,7 +17,10 @@ _ MICROSOFT EXCEL- [Download Here][https://www.microsoft.com]
 3.  For data analysing.
 4.  For data summarisation using pivot tables.
   
-- STUCTURE QUERY LANGUAGE- for data quering and presentatiofon,
+- STUCTURE QUERY LANGUAGE-[Download Here] [https://www.microsoft.com]
+1.  Data quering.
+2. Data presentatiofon.
+
 - POWER BUSINESS INTELLIGENCE - for data cleaning , entry, presentation and summarization.
 - GITHUB - for portfolio building.
   
