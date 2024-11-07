@@ -48,6 +48,11 @@ _ MICROSOFT EXCEL- [Download Here][https://www.microsoft.com]
 ### DATA ANALYSIS AND PRESENTATIONS.
  Data are summarized, facts such as best and worst performing products , customers and regions are presentated.
 
+### MICFROSOFT EXCEL ANALYSES
+
+
+
+
 ```SQL
 
 create database PROJECT_DB
