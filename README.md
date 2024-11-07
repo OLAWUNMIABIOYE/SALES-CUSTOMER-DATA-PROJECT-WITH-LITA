@@ -51,7 +51,9 @@ _ MICROSOFT EXCEL- [Download Here][https://www.microsoft.com]
 ### MICFROSOFT EXCEL ANALYSES ; filters, slicer, Auto fill (for getting totals, =) control z, 
 The STRUCTURE QUERY LANGUGE Codes useD im this DATA ANALYSIS icludes ``sql for  
 
+### DATA VISUALIZATION
 
+### RECOMMENDATION
 
 ```SQL
 
