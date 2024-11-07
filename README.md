@@ -48,8 +48,8 @@ _ MICROSOFT EXCEL- [Download Here][https://www.microsoft.com]
 ### DATA ANALYSIS AND PRESENTATIONS.
  Data are summarized, facts such as best and worst performing products , customers and regions are presentated.
 
-### MICFROSOFT EXCEL ANALYSES
-
+### MICFROSOFT EXCEL ANALYSES ; filters, slicer, Auto fill (for getting totals, =) control z, 
+The STRUCTURE QUERY LANGUGE Codes useD im this DATA ANALYSIS icludes ``sql for  
 
 
 
