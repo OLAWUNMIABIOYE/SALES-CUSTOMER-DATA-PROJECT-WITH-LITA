@@ -17,6 +17,17 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
 #### PROJECT OVERVIEW.
 This data analysis project is base on the sales and customer's operations of a medium scale company (TAMELA AND CO LIMITED), located in the Western part of Nigeria. It focuses on a typical day-day transactions of an indigenous business in a developing country. All basic parameters ranging from Customer's ID, Customer's location, Products mostly purchase and minimally purchase,Quantities bought and their Unit prices etc wrere all analyse. This aqre some of the information that helps to derive at a compelling story and performance of Tamela aand CO. Tamela and co is one of the few indigenous company in Nigeria that that boast of making good profit despite the very bad economic condition in Nigeria.
 And one of their testimonies is the frequent datsa accessment that guides / analysis the company on profit making products and other tactical solutions that prevents losses
