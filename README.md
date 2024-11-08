@@ -8,7 +8,7 @@
 
 [DATA CLEANING AND PREPARATIONS](#data-cleaning-and-preparations)
 
-[EXPLORATORY DATA ANALYSIS](#exploratory-data-Analysis)
+[EXPLORATORY DATA ANALYSIS](#exploratory-data-Analysi)
 
 [DATA ANALYSES](#data-analyses)
 
